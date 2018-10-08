@@ -14,7 +14,7 @@ var mongoose = require('mongoose');
 mongoose
   .connect(
     'mongodb://inflow:jIJ23WIOUshMCAezxJBLBCcQ48daxbPaGEvcqMVyEIV1LGG7M8khlHbpCG9wepPUc6HLUav01qp8zK7PIV9CRQ==@inflow.documents.azure.com:10255/?ssl=true&replicaSet=globaldb',
-    { promiseLibrary: require('bluebird') }
+    { useNewUrlParser: true }
   )
   .then(() => console.log('connection successful'))
   .catch(err => console.error(err));
