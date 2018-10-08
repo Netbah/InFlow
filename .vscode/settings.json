@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/513d29df-1aac-48f6-93cb-62209b8b2ea2/resourceGroups/InFlow/providers/Microsoft.Web/sites/InFlow",
+    "appService.deploySubpath": "public"
+}
