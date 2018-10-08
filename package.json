@@ -3,13 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "in-flow",
-    "killAll": "pkill -f node",
-    "local": "npm run killAll \"npm run build & concurrently --kill-others \"npm run watch\" \"npm run serve\"",
-    "serve": "ng serve --proxy-config proxy.conf.json",
+    "local": "concurrently --kill-others \"npm run watch\" \"npm run serve\"  ",
+    "serve": "ng serve --source-map --proxy-config proxy.conf.json",
     "build": "ng build --source-map --output-path=public",
-    "watch": "nodemon ./bin/www --ignore public/",
+    "watch": "nodemon ./index.js --ignore public/",
     "start": "node index.js",
-    "serve-api": "node ./bin/www",
+    "serve-api": "node ./index.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
