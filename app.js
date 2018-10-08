@@ -13,7 +13,7 @@ var mongoose = require('mongoose');
 
 mongoose
   .connect(
-    process.env.MONGODB,
+    'mongodb://inflow:jIJ23WIOUshMCAezxJBLBCcQ48daxbPaGEvcqMVyEIV1LGG7M8khlHbpCG9wepPUc6HLUav01qp8zK7PIV9CRQ==@inflow.documents.azure.com:10255/?ssl=true&replicaSet=globaldb',
     { promiseLibrary: require('bluebird') }
   )
   .then(() => console.log('connection successful'))
