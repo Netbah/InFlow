@@ -9,9 +9,10 @@ var apiRouter = require('./routes/task');
 var app = express();
 
 var mongoose = require('mongoose');
+
 mongoose
   .connect(
-    'mongodb://localhost/mean-angular6',
+    process.env.MONGODB,
     { promiseLibrary: require('bluebird') }
   )
   .then(() => console.log('connection successful'))
