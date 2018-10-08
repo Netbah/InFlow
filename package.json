@@ -4,10 +4,11 @@
   "scripts": {
     "ng": "in-flow",
     "killAll": "pkill -f node",
-    "start": "npm run killAll \"npm run build & concurrently --kill-others \"npm run watch\" \"npm run serve\"",
+    "local": "npm run killAll \"npm run build & concurrently --kill-others \"npm run watch\" \"npm run serve\"",
     "serve": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build --source-map --output-path=public",
     "watch": "nodemon ./bin/www --ignore public/",
+    "start": "node index.js",
     "serve-api": "node ./bin/www",
     "test": "ng test",
     "lint": "ng lint",
