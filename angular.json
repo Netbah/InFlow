@@ -28,7 +28,10 @@
               },
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "external/facebook.js",
+              "external/sdk.js"
+            ]
           },
           "configurations": {
             "production": {
