@@ -11,7 +11,7 @@ export class UserService {
       cookie: false, // enable cookies to allow the server to access
       // the session
       xfbml: false, // With xfbml set to true
-      version: 'v2.8' // use graph api version 2.5
+      version: 'v3.1' // use graph api version 2.5
     });
   }
 

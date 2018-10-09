@@ -23,6 +23,10 @@ import {
   MatCardModule,
   MatFormFieldModule
 } from '@angular/material';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AnonymousGuard } from './guards/anounymous.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 const appRoutes: Routes = [
   {
@@ -46,10 +50,16 @@ const appRoutes: Routes = [
     data: { title: 'Edit Task' }
   },
   {
-    path: '',
-    redirectTo: '/tasks',
-    pathMatch: 'full'
-  }
+    path: 'welcome',
+    component: LoginComponent,
+    canActivate: [AnonymousGuard]
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
+  },
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' }
 ];
 
 @NgModule({
@@ -58,7 +68,9 @@ const appRoutes: Routes = [
     TaskComponent,
     TaskDetailComponent,
     TaskCreateComponent,
-    TaskEditComponent
+    TaskEditComponent,
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

@@ -29,8 +29,6 @@
               "src/styles.css"
             ],
             "scripts": [
-              "external/facebook.js",
-              "external/sdk.js"
             ]
           },
           "configurations": {
