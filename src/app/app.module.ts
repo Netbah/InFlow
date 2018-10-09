@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AUTH_PROVIDERS } from 'angular2-jwt';
 
 import { AppComponent } from './app.component';
 import { TaskComponent } from './task/task.component';
@@ -76,7 +77,7 @@ const appRoutes: Routes = [
     MatCardModule,
     MatFormFieldModule
   ],
-  providers: [],
+  providers: [AUTH_PROVIDERS],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
