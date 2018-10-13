@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { AUTH_PROVIDERS } from 'angular2-jwt';
 
 import { AppComponent } from './app.component';
 import { TaskComponent } from './task/task.component';
@@ -23,10 +22,6 @@ import {
   MatCardModule,
   MatFormFieldModule
 } from '@angular/material';
-import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { AnonymousGuard } from './guards/anounymous.guard';
-import { AuthGuard } from './guards/auth.guard';
 
 const appRoutes: Routes = [
   {
@@ -49,16 +44,6 @@ const appRoutes: Routes = [
     component: TaskEditComponent,
     data: { title: 'Edit Task' }
   },
-  {
-    path: 'welcome',
-    component: LoginComponent,
-    canActivate: [AnonymousGuard]
-  },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    canActivate: [AuthGuard]
-  },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' }
 ];
 
@@ -68,9 +53,7 @@ const appRoutes: Routes = [
     TaskComponent,
     TaskDetailComponent,
     TaskCreateComponent,
-    TaskEditComponent,
-    LoginComponent,
-    DashboardComponent
+    TaskEditComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -89,7 +72,7 @@ const appRoutes: Routes = [
     MatCardModule,
     MatFormFieldModule
   ],
-  providers: [AUTH_PROVIDERS],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
