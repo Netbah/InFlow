@@ -16,12 +16,13 @@ import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { TaskCreateComponent } from './task-create/task-create.component';
 import { TaskEditComponent } from './task-edit/task-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
 import { FacebookModule } from 'ngx-facebook';
 import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule, MatSortModule, MatTableModule, MatIconModule, MatButtonModule, MatCardModule, MatFormFieldModule } from '@angular/material';
 var appRoutes = [
     {
         path: '',
-        component: AppComponent,
+        component: LoginComponent,
         pathMatch: 'full'
     },
     {
@@ -55,7 +56,8 @@ var AppModule = /** @class */ (function () {
                 TaskComponent,
                 TaskDetailComponent,
                 TaskCreateComponent,
-                TaskEditComponent
+                TaskEditComponent,
+                LoginComponent
             ],
             imports: [
                 RouterModule.forRoot(appRoutes),

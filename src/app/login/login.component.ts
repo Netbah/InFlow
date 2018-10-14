@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Headers, RequestOptions, Http } from '@angular/http';
 
 import { FacebookService, InitParams } from 'ngx-facebook';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent {
   title = 'Helloworld';
   token = '';
 
-  constructor(private fb: FacebookService, private http: Http) {
+  constructor(private fb: FacebookService, private http: Http, private router: Router) {
     console.log('Initializing Facebook');
 
     let initParams: InitParams = {
@@ -49,8 +50,7 @@ export class LoginComponent {
       .then(res => {
         console.log('response from server', res.status);
         if (res.status == 200) {
-          console.log('read ', res.json());
-          return res.json();
+          this.router.navigate(['/tasks']);
         } else if (res.status == 401) {
           return null;
         } else {
