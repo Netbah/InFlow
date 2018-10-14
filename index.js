@@ -6,7 +6,9 @@
 
 var app = require('./app');
 var debug = require('debug')('mean-angular6:server');
-var http = require('http');
+var https = require('https');
+
+var fs = require('fs');
 
 /**
  * Get port from environment and store in Express.
@@ -16,10 +18,16 @@ var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
- * Create HTTP server.
+ * Create HTTPS server.
  */
 
-var server = http.createServer(app);
+var server = https.createServer(
+  {
+    key: fs.readFileSync('sslcert/server.key'),
+    cert: fs.readFileSync('sslcert/server.cert')
+  },
+  app
+);
 
 /**
  * Listen on provided port, on all network interfaces.

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { TaskComponent } from './task/task.component';
@@ -10,6 +11,8 @@ import { TaskDetailComponent } from './task-detail/task-detail.component';
 import { TaskCreateComponent } from './task-create/task-create.component';
 import { TaskEditComponent } from './task-edit/task-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { FacebookModule } from 'ngx-facebook';
 
 import {
   MatInputModule,
@@ -24,6 +27,11 @@ import {
 } from '@angular/material';
 
 const appRoutes: Routes = [
+  {
+    path: '',
+    component: LoginComponent,
+    pathMatch: 'full'
+  },
   {
     path: 'tasks',
     component: TaskComponent,
@@ -43,8 +51,7 @@ const appRoutes: Routes = [
     path: 'task-edit/:id',
     component: TaskEditComponent,
     data: { title: 'Edit Task' }
-  },
-  { path: '', redirectTo: 'welcome', pathMatch: 'full' }
+  }
 ];
 
 @NgModule({
@@ -53,7 +60,8 @@ const appRoutes: Routes = [
     TaskComponent,
     TaskDetailComponent,
     TaskCreateComponent,
-    TaskEditComponent
+    TaskEditComponent,
+    LoginComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -61,6 +69,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    HttpModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatTableModule,
@@ -70,7 +79,8 @@ const appRoutes: Routes = [
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    FacebookModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
